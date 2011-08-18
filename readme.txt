@@ -1,0 +1,45 @@
+=== ShowBox ===
+Contributors: portable
+Donate link: http://www.portablecomponentsforall.com
+Tags: DropBox, Drop Box, nextgen, nextgen gallery, gallery, media library, media, all in one, portfolio, photographs, sidebar widget,photowidget, photoblog, photoalbum, photo albums, fancy, album, folders, flickr, image, images, Galleriffic, image gallery, photo gallery, lightbox, picture, pictures, portfolio, popup, photos, photo, rss, sidebar, widget, slideshow, photography, photospace
+Requires at least: 2.8
+Tested up to: 2.8
+Stable tag: trunk
+
+
+Any images, photos, pictures from your DropBox Public folder now are accessible to view in sidebar gallery of your blog.
+
+== Description ==
+
+Want see all images from your DropBox Public folder?  
+Want show your readers your recent photos in sidebar gallery of your blog?  
+It's fast and easy way to show your photos from any event in your life:  
+
+* Last party
+* Vacation
+* Family holidays
+* Pets
+* Cars
+* and any pictures you want to public
+
+Now any important images can be viewing in minutes! 
+Five easy steps:: 
+
+1.  Launch your DropBox
+2.  Move your images, photos in DropBox public folder  
+3.  Input your login and password in ShowBox widget admin page
+4.  Input subfolder name (optional)
+5.  Press Submit
+
+And let all your readers estimate what 's important for you.  
+To change the folder name-input new name in proper field and click submit. That's all. Enjoy!
+
+
+== Installation ==
+
+This section describes how to install the plugin and get it working.
+
+e.g.
+
+1. Upload `show-box/show_box.php` to the `/wp-content/plugins/` directory
+1. Activate the plugin through the 'Plugins' menu in WordPress

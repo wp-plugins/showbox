@@ -1,0 +1,425 @@
+<?php
+
+// This file contain a lot of utility functions for Show-Box widget
+
+
+
+// This function delete all cache files
+function Drop_Cache($real_path){
+
+ $options = array('cacheDir' => $real_path. '/cache/' );
+ $cache = new Cache_Lite($options);
+ $cache->clean();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Process $folder_content var. If present in cache - return value. 
+// If not present in cache, generate, save to cache and return value
+function Get_Or_Set_Cached_Array( $id, $DropBox_Settings, $filter ){
+
+
+
+
+// Set a few options
+ $options = array(
+// Get path to "Show Box" folder
+ 'cacheDir' => $DropBox_Settings['real_path']."/cache/",
+ 'lifeTime' => $DropBox_Settings['cachelifeTime']
+);
+
+
+
+
+// Create a Cache_Lite object
+ $Cache_Lite = new Cache_Lite($options);
+
+
+// Read cache from cache file
+ $data = $Cache_Lite->get($id);
+
+
+
+// test if found cached data
+ if ($data) {
+//   print "Cache found.";
+
+// Read cached data to array
+   $folder_content=unserialize($data);
+
+} else { // No valid cache found (you have to make the page)
+
+// Get DropBox folder content
+//    $folder_content=DropBox_Folder_Content( $DropBox_Settings, $filter );
+    $folder_content=Remote_DropBox_Folder_Content( $DropBox_Settings, $filter );
+
+
+// Save DropBox folder content array to cache file
+    $Cache_Lite->save(serialize($folder_content));
+  //  print "Save cache.";
+}
+
+// Return cached content
+ return($folder_content);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Get from server (www.portablecomponentsforall.com) DropBox Folder content
+function Remote_DropBox_Folder_Content( $DropBox_Settings, $filter ){
+
+$request = new HTTP_Request2($DropBox_Settings['Request_URL']);
+$request->setMethod(HTTP_Request2::METHOD_POST)
+    ->addPostParameter(array(
+        'login' => $DropBox_Settings['login'],
+        'password' => $DropBox_Settings['password'],
+        'Public_Path' => $DropBox_Settings['Public_Path']
+    ));
+
+
+try {
+    $response = $request->send();
+    if (200 == $response->getStatus()) {
+
+
+// get query body, unserialize, return content of DropBox folder
+        return(unserialize( $response->getBody() ) );
+
+
+
+    } else {
+        echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
+             $response->getReasonPhrase();
+    }
+} catch (HTTP_Request2_Exception $e) {
+    echo 'Error: ' . $e->getMessage();
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Get DropBox folder content
+function DropBox_Folder_Content( $DropBox_Settings, $filter )
+{
+
+
+$oauth = new Dropbox_OAuth_PEAR( $DropBox_Settings['consumerKey'], $DropBox_Settings['consumerSecret']);
+
+$dropbox = new Dropbox_API($oauth);
+
+$tokens = $dropbox->getToken( $DropBox_Settings['login'], $DropBox_Settings['password'] ); 
+
+// Note that it's wise to save these tokens for re-use.
+$oauth->setToken($tokens);
+
+// Get your account uid
+$acc_info=$dropbox->getAccountInfo();
+
+// Get your uid on DropBox
+$uid=$acc_info['uid'];
+
+// Get content of directory
+$dropbox_content=$dropbox->getMetaData("/Public/".$DropBox_Settings['Public_Path']);
+
+// Return links to files narrowed by filter
+$folder_content=DropBox_Public_Files( $dropbox_content, $uid, $filter);
+
+// Return folder content
+return($folder_content);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Show gallery 
+function Show_Gallery($folder_content,$DropBox_Settings){
+
+
+$width=$DropBox_Settings['width'];
+$height=$DropBox_Settings['height'];
+
+
+// Output gallery
+print <<<EOF
+<p style="margin-bottom: 0px;">
+EOF;
+
+
+
+ foreach($folder_content as $image_url )
+  {
+print <<<EOF
+
+<a rel="show-box-group" href="$image_url" class="show-box-lightbox">
+<img width="$width" height="$height" src="$image_url" />
+</a>
+
+EOF;
+    }
+
+print <<<EOF
+</p>
+<!-- Show copyrights -->
+<a title="Created by http://www.portablecomponentsforall.com" target="_blank" href="http://www.portablecomponentsforall.com">&copy;</a>
+<!-- End copyrights -->
+
+EOF;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Return path to files in DropBox Public folder
+// http://dl.dropbox.com/u/uid"+result
+function DropBox_Public_Files($dropbox,$uid,$filter){
+
+// iterate all elements of directory
+ foreach($dropbox['contents'] as $element){
+// Generate path for element and filter by type
+  if (in_array($element['mime_type'], $filter)) {
+   $buffer[]="http://dl.dropbox.com/u/$uid/".Remove_Public_Word($element['path']);
+  }
+ }
+
+
+ return($buffer);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Remove  /Public/ word from path
+function Remove_Public_Word($buffer){
+ $buffer=str_replace("/Public","",$buffer);
+
+ return($buffer);
+}
+
+
+
+
+?>
