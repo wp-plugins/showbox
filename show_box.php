@@ -14,7 +14,7 @@ License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2
 // Use cache wordpress engine
 // include 'wp-includes/cache.php';
 
-// include "Show-Box" needed function
+// include "ShowBox" needed function
 $real_path = realpath(dirname(__FILE__));
 ini_set('include_path', "$real_path/PEAR/");
 include 'Dropbox/autoload.php';
@@ -57,7 +57,7 @@ extract( $args );
 // Output content
 ?>
 
-  <!--[if IE 6]><link rel="stylesheet" type="text/css" href="/wp-content/plugins/show-box/lightbox/javascript/lightbox/themes/default/jquery.lightbox.ie6.css" /><![endif]-->
+  <!--[if IE 6]><link rel="stylesheet" type="text/css" href="/wp-content/plugins/showbox/lightbox/javascript/lightbox/themes/default/jquery.lightbox.ie6.css" /><![endif]-->
 
   <script type="text/javascript">
     jQuery(document).ready(function(){
@@ -80,7 +80,6 @@ $DropBox_Settings=Array(
 'Public_Path'=>$instance['Public_Path'],
 
 // main server query URL
-//'Request_URL'=>'http://www.wordpress.localhost/Show-Box/dropbox_links_list.php',
 'Request_URL'=>'http://www.portablecomponentsforall.com/ShowBox/dropbox_links_list.php',
 
 
