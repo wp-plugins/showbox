@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Show Box
+Plugin Name: ShowBox
 Plugin URI: http://wordpress.org/extend/plugins/showbox
 Description: Any images, photos, pictures from your DropBox Public folder now are accessible to view in sidebar gallery of your blog.
 Author: Jim Jerginson
@@ -227,8 +227,8 @@ white-green
 
 */
 // Set js&css for lightbox
-wp_enqueue_style('themes_jquery_lightbox_css', '/wp-content/plugins/show-box/lightbox/javascript/lightbox/themes/evolution/jquery.lightbox.css');
-wp_enqueue_script('jquery_lightbox_js', '/wp-content/plugins/show-box/lightbox/javascript/lightbox/jquery.lightbox.js');
+wp_enqueue_style('themes_jquery_lightbox_css', '/wp-content/plugins/showbox/lightbox/javascript/lightbox/themes/evolution/jquery.lightbox.css');
+wp_enqueue_script('jquery_lightbox_js', '/wp-content/plugins/showbox/lightbox/javascript/lightbox/jquery.lightbox.js');
 
 }    
 
