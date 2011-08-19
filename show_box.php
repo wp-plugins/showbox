@@ -5,7 +5,7 @@ Plugin URI: http://wordpress.org/extend/plugins/showbox
 Description: Any images, photos, pictures from your DropBox Public folder now are accessible to view in sidebar gallery of your blog.
 Author: Jim Jerginson
 Author URI: http://www.portablecomponentsforall.com
-Version: 0.1
+Version: 0.2
 License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 
@@ -228,6 +228,8 @@ white-green
 // Set js&css for lightbox
 wp_enqueue_style('themes_jquery_lightbox_css', '/wp-content/plugins/showbox/lightbox/javascript/lightbox/themes/evolution/jquery.lightbox.css');
 wp_enqueue_script('jquery_lightbox_js', '/wp-content/plugins/showbox/lightbox/javascript/lightbox/jquery.lightbox.js');
+
+
 
 }    
 
