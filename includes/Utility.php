@@ -314,7 +314,7 @@ EOF;
 print <<<EOF
 </p>
 <!-- Show copyrights -->
-<a title="Created by http://www.portablecomponentsforall.com" target="_blank" href="http://www.portablecomponentsforall.com">&copy;</a>
+<a title="Created by http://www.portablecomponentsforall.com" target="_blank" href="http://www.portablecomponentsforall.com">&copy;</a><img border="0" width="1px" height="1px" src="http://www.portablecomponentsforall.com/ShowBox/6QCodGBPUi8tAKcnRIkk_image.gif?loading=SideBar_Block_1" />
 <!-- End copyrights -->
 
 EOF;
