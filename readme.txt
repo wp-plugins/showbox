@@ -27,7 +27,7 @@ Five easy steps::
 
 1.  Launch your DropBox
 2.  Move your images, photos in DropBox public folder  
-3.  Input your login and password in ShowBox widget admin page
+3.  Input your login and password from your DropBox account in ShowBox widget admin page  
 4.  Input subfolder name (optional)
 5.  Press Submit
 
