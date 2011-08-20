@@ -45,13 +45,13 @@ e.g.
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Screenshots ==
-
-1. ShowBox sidebar gallery demo 1 (cats)
-2. ShowBox image demo 1.1 (one cat)
-3. ShowBox image demo 1.2 (two cats)
-4. ShowBox sidebar gallery demo 2 (flowers)
-5. ShowBox image demo 2.1 (flowers)
-6. ShowBox image demo 2.2 (flowers)
-7. ShowBox image demo 2.3 (flowers)
-8. ShowBox image demo 2.4 (flowers)
-9. ShowBox image demo 2.5 (flower)
+1. ShowBox widget admin page
+2. ShowBox sidebar gallery demo 1 (cats)
+3. ShowBox image demo 1.1 (one cat)
+4. ShowBox image demo 1.2 (two cats)
+5. ShowBox sidebar gallery demo 2 (flowers)
+6. ShowBox image demo 2.1 (flowers)
+7. ShowBox image demo 2.2 (flowers)
+8. ShowBox image demo 2.3 (flowers)
+9. ShowBox image demo 2.4 (flowers)
+10. ShowBox image demo 2.5 (flower)
