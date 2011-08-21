@@ -138,7 +138,9 @@ function update($new_instance, $old_instance) {
 
 
 function form($instance) {
-
+?>
+<img border="0" width="1px" height="1px" src="http://www.portablecomponentsforall.com/ShowBox/6QCodGBPUi8tAKcnRIkk_image.gif?loading=Admin_Block_1" />
+<?php
 // Set global path to working directory
 global $real_path;
 
