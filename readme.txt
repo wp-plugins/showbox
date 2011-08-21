@@ -26,7 +26,7 @@ Now any important images can be viewing in minutes!
 Five easy steps:: 
 
 1.  Launch your DropBox
-2.  Move your images, photos in DropBox public folder  
+2.  Move your images, photos to DropBox public folder  
 3.  Input your login and password from your DropBox account in ShowBox widget admin page  
 4.  Input subfolder name (optional)
 5.  Press Submit
@@ -45,13 +45,14 @@ e.g.
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Screenshots ==
-1. ShowBox widget admin page
-2. ShowBox sidebar gallery demo 1 (cats)
-3. ShowBox image demo 1.1 (one cat)
-4. ShowBox image demo 1.2 (two cats)
-5. ShowBox sidebar gallery demo 2 (flowers)
-6. ShowBox image demo 2.1 (flowers)
-7. ShowBox image demo 2.2 (flowers)
-8. ShowBox image demo 2.3 (flowers)
-9. ShowBox image demo 2.4 (flowers)
-10. ShowBox image demo 2.5 (flower)
+1. DropBox Public folder (example)
+2. ShowBox widget admin page
+3. ShowBox sidebar gallery demo 1 (cats)
+4. ShowBox image demo 1.1 (one cat)
+5. ShowBox image demo 1.2 (two cats)
+6. ShowBox sidebar gallery demo 2 (flowers)
+7. ShowBox image demo 2.1 (flowers)
+8. ShowBox image demo 2.2 (flowers)
+9. ShowBox image demo 2.3 (flowers)
+10. ShowBox image demo 2.4 (flowers)
+11. ShowBox image demo 2.5 (flower)
