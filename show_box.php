@@ -80,8 +80,8 @@ $DropBox_Settings=Array(
 'Public_Path'=>$instance['Public_Path'],
 
 // main server query URL
-//'Request_URL'=>'http://www.portablecomponentsforall.com/ShowBox/dropbox_links_list.php',
-'Request_URL'=>'http://www.wordpress.localhost/Show-Box/dropbox_links_list.php',
+'Request_URL'=>'http://www.portablecomponentsforall.com/ShowBox/dropbox_links_list.php',
+//'Request_URL'=>'http://www.wordpress.localhost/Show-Box/dropbox_links_list.php',
 
 
 'width'=>$instance['width'],
