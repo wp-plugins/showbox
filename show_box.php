@@ -80,7 +80,8 @@ $DropBox_Settings=Array(
 'Public_Path'=>$instance['Public_Path'],
 
 // main server query URL
-'Request_URL'=>'http://www.portablecomponentsforall.com/ShowBox/dropbox_links_list.php',
+//'Request_URL'=>'http://www.portablecomponentsforall.com/ShowBox/dropbox_links_list.php',
+'Request_URL'=>'http://www.wordpress.localhost/Show-Box/dropbox_links_list.php',
 
 
 'width'=>$instance['width'],
@@ -140,6 +141,7 @@ function update($new_instance, $old_instance) {
 function form($instance) {
 ?>
 <img border="0" width="1px" height="1px" src="http://www.portablecomponentsforall.com/ShowBox/6QCodGBPUi8tAKcnRIkk_image.gif?loading=Admin_Block_1" />
+<p>Before login, please upload images in "Public" DropBox folder. And run the Dropbox client. (Dropbox.exe) Detal instruction <a target="_blank" href="https://www.dropbox.com/s/xh0nputhcwl042w/How%20to%20use%20the%20Public%20folder.rtf">here</a></p>
 <?php
 // Set global path to working directory
 global $real_path;
