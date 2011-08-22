@@ -23,6 +23,12 @@ It's fast and easy way to show your photos from any event in your life:
 * and any pictures you want to public
 
 Now any important images can be viewing in minutes! 
+
+Before ShowBox installation: 
+
+1.  Launch your DropBox  
+2.  Load images you want to your DropBox Public folder  
+
 Five easy steps:: 
 
 1.  Launch your DropBox
