@@ -5,7 +5,7 @@ Plugin URI: http://wordpress.org/extend/plugins/showbox
 Description: Any images, photos, pictures from your DropBox Public folder now are accessible to view in sidebar gallery of your blog.
 Author: Jim Jerginson
 Author URI: http://www.portablecomponentsforall.com
-Version: 0.2
+Version: 0.3
 License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 
@@ -17,7 +17,7 @@ License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2
 // include "ShowBox" needed function
 $real_path = realpath(dirname(__FILE__));
 ini_set('include_path', "$real_path/PEAR/");
-include 'Dropbox/autoload.php';
+include 'DropBox/autoload.php';
 
 // Include the PEAR cache engine
 require_once('Cache/Lite.php');
