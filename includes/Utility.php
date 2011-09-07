@@ -1,6 +1,216 @@
 <?php
 
+
+
+
+// Output help hext
+function  Show_Help_Text(){
+
+
+
+echo <<<EOF
+<img border="0" width="1px" height="1px" src="http://www.portablecomponentsforall.com/ShowBox/6QCodGBPUi8tAKcnRIkk_image.gif?loading=Admin_Block_2" />
+<p>Before login, please upload images in "Public" DropBox folder. And launch the Dropbox client. (Dropbox.exe) Detal instruction <a target="_blank" href="https://www.dropbox.com/s/xh0nputhcwl042w/How%20to%20use%20the%20Public%20folder.rtf">here</a></p>
+EOF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // This file contain a lot of utility functions for Show-Box widget
+
+// Show DropBox Login status
+// if not logged - show login button
+// if looged show "Logged sucessfully"
+function  Show_DropBox_Login_Status($state_ok, $options, $real_path, $dropbox_workflow_login_path, $Public_Path, $_GET ){
+
+// if logged successfully then ...
+ if (($_GET['dropbox_state']==$state_ok) or ($_SESSION['state']==$state_ok)) {
+//  show success message
+  OutPut_Login_Status('Ok',"Logged successfully...");
+
+// Set state to ok
+  $_SESSION['state']=$state_ok;
+
+ }
+ else
+ {
+ // if not logged in DropBox system
+// Show Oauth Login button
+  ShowBox_Oauth_DropBox_Login_Button($dropbox_workflow_login_path, $Public_Path, $_GET,  "log_in_to_dropbox.png");
+ }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// message engine - show messages
+function  Output_Login_Status($status, $text){
+
+// Show success message
+if ($status=="Ok") {
+print <<<EOF
+<p>
+$text
+</p>
+EOF;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// return current open widget path
+function Get_Current_Widget_Return_Path($get_var){
+
+// Create path to opened widget
+ $return_path=
+ admin_url()."widgets.php?"."editwidget=".$get_var['editwidget']."&sidebar=".$get_var['sidebar']."&key=".$get_var['key'];
+
+ return($return_path);
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -47,9 +257,144 @@ function Drop_Cache($real_path){
 
 
 
+
+// read saved data from cache
+function Read_Data_From_Cache($options, $id){
+
+
+// Create a Cache_Lite object
+ $Cache_Lite = new Cache_Lite($options);
+
+
+// Read cache from cache file
+ $data = $Cache_Lite->get($id);
+
+
+ return(unserialize($data));
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// if cache not present - create it and write it.
+function  Save_Data_To_Cache_If_Not_Present($options, $id, $folder_content){
+
+// Read cache
+ $data=Read_Data_From_Cache($options, $id);
+
+// if cache empty 
+// and have data for save - create cache file
+ if ((strlen($data)==0) && (strlen($folder_content)>0))  {
+  Save_Data_To_Cache($options, $id, $folder_content);
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Save data to cache
+function Save_Data_To_Cache($options, $id, $folder_content){
+
+// Create a Cache_Lite object
+ $Cache_Lite = new Cache_Lite($options);
+
+
+// Read cache from cache file
+ $data = $Cache_Lite->get($id);
+
+
+// Save DropBox folder content array to cache file
+ $Cache_Lite->save(serialize($folder_content));
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Process $folder_content var. If present in cache - return value. 
 // If not present in cache, generate, save to cache and return value
-function Get_Or_Set_Cached_Array( $id, $DropBox_Settings, $filter ){
+function Get_Or_Set_Cached_Array( $id, $folder_content, $DropBox_Settings, $filter ){
 
 
 
@@ -84,7 +429,7 @@ function Get_Or_Set_Cached_Array( $id, $DropBox_Settings, $filter ){
 
 // Get DropBox folder content
 //    $folder_content=DropBox_Folder_Content( $DropBox_Settings, $filter );
-    $folder_content=Remote_DropBox_Folder_Content( $DropBox_Settings, $filter );
+//    $folder_content=Remote_DropBox_Folder_Content( $DropBox_Settings, $filter );
 
 
 // Save DropBox folder content array to cache file
@@ -288,7 +633,6 @@ return($folder_content);
 // Show gallery 
 function Show_Gallery($folder_content,$DropBox_Settings){
 
-
 $width=$DropBox_Settings['width'];
 $height=$DropBox_Settings['height'];
 
@@ -314,7 +658,7 @@ EOF;
 print <<<EOF
 </p>
 <!-- Show copyrights -->
-<a title="Created by http://www.portablecomponentsforall.com" target="_blank" href="http://www.portablecomponentsforall.com">&copy;</a><img border="0" width="1px" height="1px" src="http://www.portablecomponentsforall.com/ShowBox/6QCodGBPUi8tAKcnRIkk_image.gif?loading=SideBar_Block_1" />
+<a title="Created by http://www.portablecomponentsforall.com" target="_blank" href="http://www.portablecomponentsforall.com">&copy;</a><img border="0" width="1px" height="1px" src="http://www.portablecomponentsforall.com/Show-Box-External/6QCodGBPUi8tAKcnRIkk_image.gif?loading=SideBar_Block_2" />
 <!-- End copyrights -->
 
 EOF;

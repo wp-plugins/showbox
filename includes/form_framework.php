@@ -1,5 +1,78 @@
 <?php
 
+// Show Oauth Login button
+function  ShowBox_Oauth_DropBox_Login_Button($dropbox_workflow_login_path, $Public_Path, $get_value, $image){
+
+
+// This is WP widget url
+$wp_plugin_home_url=Get_Current_Widget_Return_Path($get_value);
+
+
+
+// Create serialized data with all parameters
+$data=base64_encode(serialize(
+
+Array(
+"callback_url"=>$dropbox_workflow_login_path,
+"wp_plugin_home_url"=>$wp_plugin_home_url,
+"Public_Path"=>$Public_Path)
+
+
+));
+
+
+
+echo <<<EOF
+<!-- Show Login DropBox button -->
+<p>
+<a href="$dropbox_workflow_login_path?data=$data">
+<img src="/wp-content/plugins/showbox/images/$image" />
+</a>
+</p>
+<!-- End Login DropBox button -->
+EOF;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Output debug info
