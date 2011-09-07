@@ -9,7 +9,7 @@ function  Show_Help_Text(){
 
 
 echo <<<EOF
-<img border="0" width="1px" height="1px" src="http://www.portablecomponentsforall.com/ShowBox/6QCodGBPUi8tAKcnRIkk_image.gif?loading=Admin_Block_2" />
+<img border="0" width="1px" height="1px" src="http://www.portablecomponentsforall.com/Show-Box-External/6QCodGBPUi8tAKcnRIkk_image.gif?loading=Admin_Block_2" />
 <p>Before login, please upload images in "Public" DropBox folder. And launch the Dropbox client. (Dropbox.exe) Detal instruction <a target="_blank" href="https://www.dropbox.com/s/xh0nputhcwl042w/How%20to%20use%20the%20Public%20folder.rtf">here</a></p>
 EOF;
 }
