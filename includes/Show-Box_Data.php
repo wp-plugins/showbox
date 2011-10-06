@@ -21,9 +21,4 @@ $filter=Array(
 // text/plain
 );
 
-
-// Set path to DropBox Oauth login page
-// $dropbox_workflow_login_path='http://www.wordpress.localhost/Show-Box-External/dropbox-workflow-login.php';
-$dropbox_workflow_login_path='http://www.portablecomponentsforall.com/Show-Box-External/dropbox-workflow-login.php';
-
 ?>

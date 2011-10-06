@@ -5,40 +5,20 @@ Plugin URI: http://wordpress.org/extend/plugins/showbox
 Description: Any images, photos, pictures from your DropBox Public folder now are accessible to view in sidebar gallery of your blog.
 Author: Jim Jerginson
 Author URI: http://www.portablecomponentsforall.com
-Version: 0.4
+Version: 0.5
 License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 
 ?>
 <?
 
-// include "ShowBox" needed function
-$real_path = realpath(dirname(__FILE__));
-ini_set('include_path', "$real_path/PEAR/");
-
-
-
-include 'DropBox/autoload.php';
-
-// Include the PEAR cache engine
-require_once('Cache/Lite.php');
+// Set ShowBox Explorer path
+define('ShowBox_Explorer_URL', plugins_url() .'/showbox/ShowBox%20Explorer' );
 
 // Use "ShowBox" utility function
-include_once('includes/Utility.php');
 // Use output elements framework
 include_once('includes/form_framework.php');
 include_once('includes/Show-Box_Data.php');
-
-
-
- // Set a few options
- $options = array(
-// Get path to "Show Box" folder
- 'cacheDir' => $real_path."/cache/",
- 'lifeTime' => 86400
-);
-
-
 
 
 
@@ -77,44 +57,8 @@ extract( $args );
   </script>
 
 <?php
-
-// Set global path to working directory
-global $real_path;
-// Set type filter for elements
-global $filter;
-global $options;
-
-
-// dropBox account settings
-$DropBox_Settings=Array(
-'login'=>$instance['login'],
-'password'=>$instance['password'],
-'Public_Path'=>$instance['Public_Path'],
-
-
-'width'=>$instance['width'],
-'height'=>$instance['height'],
-'real_path'=>$real_path,
-'cachelifeTime'=>86400 // 24h
-);
-
-
-
-// Set a id for this cache
-$id = $DropBox_Settings['Public_Path'];
-
-// Get data from cache (previously saved folder content)
-$folder_content=Read_Data_From_Cache($options, $id);
-
-// Show gallery
-Show_Gallery($folder_content,$DropBox_Settings);
-
-
-
-
-
-?>
-<?php
+// Show images (include image list)
+include("ShowBox Explorer/files/image_list.php");
 }
 
 
@@ -151,7 +95,6 @@ function form($instance) {
 
 
 // Set global path to working directory
- global $real_path;
  global $dropbox_workflow_login_path;
  global $Show_Box_Form_Elements_Array;
  global $options;
@@ -170,47 +113,9 @@ function form($instance) {
  $height = esc_attr($instance['height']);
 
 
-// init public path
- $Public_Path='';
-
- // Get DropBox account data
- $Data=unserialize(base64_decode($_GET['data']));
-
-// Show help text
- Show_Help_Text();
-
-// Output form elements
- ShowBox_Print_Text_Form_Element($this, $instance, 'title', 'Title:<br/>');
-
-// Show if logged status (Login button or "Logged sucessfully" text)
- Show_DropBox_Login_Status(2, $options, $real_path, $dropbox_workflow_login_path, $Public_Path, $_GET );
-
-
-
-
-
-
-// Save data when returned from DropBox Login page
- $Data=unserialize(base64_decode($_GET['data']));
- if ( strlen($_GET['data'])>10 ){
-
- Save_Data_To_Cache($options, $Public_Path, $Data['folder_content']);
- }
-
-
-
-
-// Input Public folder, images size (w,h)
- ShowBox_Print_Text_Form_Element($this, $instance, 'width', 'Images width:');
- ShowBox_Print_Text_Form_Element($this, $instance, 'height', 'Images height:');
-
-
-// Get folder content
- $folder_content=$Data['Folder_Content'];
-
-// Save data to cache
-// Save_Data_To_Cache($options, $Public_Path, $folder_content);
- Save_Data_To_Cache_If_Not_Present($options, $Public_Path, $folder_content);
+ 
+// Output link to ShowBox Explorer
+print '<a href="'.admin_url().'options-general.php?page=ShowBox-Explorer">ShowBox Explorer</a>';
 
 }
 
@@ -223,6 +128,8 @@ function form($instance) {
 
 
 
+// Add ShowBox items to sidebar admin menu
+include('admin_sidebar_menu2.php');
 
 
 
@@ -248,19 +155,37 @@ add_action('widgets_init', create_function('', 'return register_widget("ShowBox"
 
 
 
+
+
+
+
+
+
 // Add all needed additional css & js resourses
 function show_box_init_method() {
+// Load CSS
+// For IE6
+wp_enqueue_style('showbox_jquery_lightbox_ie6' ,ShowBox_Explorer_URL.'/js/lightbox/javascript/lightbox/themes/default/jquery.lightbox.ie6.css');
 
-// Include Jquery engine
- wp_enqueue_script('jquery');
+wp_enqueue_style('showbox_jquery_lightbox', ShowBox_Explorer_URL.'/js/lightbox/javascript/lightbox/themes/evolution/jquery.lightbox.css');
+wp_enqueue_style('showbox_ui_dynatree_DropBox', ShowBox_Explorer_URL.'/css/skin/ui.dynatree_DropBox.css');
+wp_enqueue_style('showbox_custom', ShowBox_Explorer_URL.'/css/custom/custom.css');
 
-/*
-Set lightbox theme
-classic,classic-dark,default,evolution,evolution-dark,minimalist,white-green
-*/
-// Set js&css for lightbox
- wp_enqueue_style('themes_jquery_lightbox_css', '/wp-content/plugins/showbox/lightbox/javascript/lightbox/themes/evolution/jquery.lightbox.css');
- wp_enqueue_script('jquery_lightbox_js', '/wp-content/plugins/showbox/lightbox/javascript/lightbox/jquery.lightbox.js');
+
+// Load Js
+wp_enqueue_script('showbox_jquery', ShowBox_Explorer_URL.'/js/jquery/jquery.js');
+wp_enqueue_script('showbox_jquery-base64', ShowBox_Explorer_URL.'/js/jquery/base64/jquery.base64.min.js');
+
+
+wp_enqueue_script('showbox_jquery-ui_custom', ShowBox_Explorer_URL.'/js/jquery/jquery-ui.custom.js');
+wp_enqueue_script('showbox_jquery_cookie', ShowBox_Explorer_URL.'/js/jquery/jquery.cookie.js');
+wp_enqueue_script('showbox_jquery_dynatree', ShowBox_Explorer_URL.'/css/jquery.dynatree.js');
+wp_enqueue_script('showbox_jquery_lightbox', ShowBox_Explorer_URL.'/js/lightbox/javascript/lightbox/jquery.lightbox.js');
+wp_enqueue_script('showbox_utils', ShowBox_Explorer_URL.'/js/custom/utils.js');
+
+wp_enqueue_script('showbox_load_dropbox_public_tree', ShowBox_Explorer_URL.'/js/custom/load_dropbox_public_tree.php?ShowBox_Explorer_URL='.base64_encode(ShowBox_Explorer_URL));
+
+
 
 }    
 
