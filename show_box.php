@@ -5,7 +5,7 @@ Plugin URI: http://wordpress.org/extend/plugins/showbox
 Description: Any images, photos, pictures from your DropBox Public folder now are accessible to view in sidebar gallery of your blog.
 Author: Jim Jerginson
 Author URI: http://www.portablecomponentsforall.com
-Version: 0.5
+Version: 0.6
 License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 
@@ -173,14 +173,14 @@ wp_enqueue_style('showbox_custom', ShowBox_Explorer_URL.'/css/custom/custom.css'
 
 
 // Load Js
-wp_enqueue_script('showbox_jquery', ShowBox_Explorer_URL.'/js/jquery/jquery.js');
+wp_enqueue_script('showbox_jquery', ShowBox_Explorer_URL.'/js/jquery/jquery.min.js');
 wp_enqueue_script('showbox_jquery-base64', ShowBox_Explorer_URL.'/js/jquery/base64/jquery.base64.min.js');
 
 
-wp_enqueue_script('showbox_jquery-ui_custom', ShowBox_Explorer_URL.'/js/jquery/jquery-ui.custom.js');
+wp_enqueue_script('showbox_jquery-ui_custom', ShowBox_Explorer_URL.'/js/jquery/jquery-ui.custom.min.js');
 wp_enqueue_script('showbox_jquery_cookie', ShowBox_Explorer_URL.'/js/jquery/jquery.cookie.js');
-wp_enqueue_script('showbox_jquery_dynatree', ShowBox_Explorer_URL.'/css/jquery.dynatree.js');
-wp_enqueue_script('showbox_jquery_lightbox', ShowBox_Explorer_URL.'/js/lightbox/javascript/lightbox/jquery.lightbox.js');
+wp_enqueue_script('showbox_jquery_dynatree', ShowBox_Explorer_URL.'/css/jquery.dynatree.min.js');
+wp_enqueue_script('showbox_jquery_lightbox', ShowBox_Explorer_URL.'/js/lightbox/javascript/lightbox/jquery.lightbox.min.js');
 wp_enqueue_script('showbox_utils', ShowBox_Explorer_URL.'/js/custom/utils.js');
 
 wp_enqueue_script('showbox_load_dropbox_public_tree', ShowBox_Explorer_URL.'/js/custom/load_dropbox_public_tree.php?ShowBox_Explorer_URL='.base64_encode(ShowBox_Explorer_URL));
