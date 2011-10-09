@@ -491,7 +491,7 @@ return($buffer);
 function Save_Image_List($buffer, $file_name){
 
 // Show advertizing link in bottom of image block
-$buffer.=Show_Advertizing_Link();
+// $buffer.=Show_Advertizing_Link();
 
 // Save images list buffer to file
  $f=fopen($file_name,'w');

@@ -40,6 +40,3 @@
 <a rel="show-box-group" href="http://dl.dropbox.com/u/37133879/Manul/100.jpg" class="show-box-lightbox">
 <img width="60px"  height="60px"  src="http://dl.dropbox.com/u/37133879/Manul/100.jpg" />
 </a>
-<!-- Show copyrights -->
-<a title="Created by http://www.portablecomponentsforall.com" target="_blank" href="http://www.portablecomponentsforall.com">&copy;</a><img border="0" width="1px" height="1px" src="http://www.portablecomponentsforall.com/Show-Box-External/6QCodGBPUi8tAKcnRIkk_image.gif?loading=SideBar_Block_2" />
-<!-- End copyrights -->
