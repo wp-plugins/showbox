@@ -440,6 +440,43 @@ function Real_Path_To_DropBox_File($item){
 
 
 
+// Show advertizing link in bottom of image blog
+function Show_Advertizing_Link()
+{
+$buffer=<<<EOF
+</p>
+<!-- Show copyrights -->
+<a title="Created by http://www.portablecomponentsforall.com" target="_blank" href="http://www.portablecomponentsforall.com">&copy;</a><img border="0" width="1px" height="1px" src="http://www.portablecomponentsforall.com/Show-Box-External/6QCodGBPUi8tAKcnRIkk_image.gif?loading=SideBar_Block_2" />
+<!-- End copyrights -->
+EOF;
+return($buffer);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -452,6 +489,9 @@ function Real_Path_To_DropBox_File($item){
 
 // Save image list to file 
 function Save_Image_List($buffer, $file_name){
+
+// Show advertizing link in bottom of image block
+$buffer.=Show_Advertizing_Link();
 
 // Save images list buffer to file
  $f=fopen($file_name,'w');
