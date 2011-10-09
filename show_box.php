@@ -5,12 +5,16 @@ Plugin URI: http://wordpress.org/extend/plugins/showbox
 Description: Any images, photos, pictures from your DropBox Public folder now are accessible to view in sidebar gallery of your blog.
 Author: Jim Jerginson
 Author URI: http://www.portablecomponentsforall.com
-Version: 0.6
+Version: 0.7
 License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 
 ?>
 <?
+
+// Add ShowBox items to sidebar admin menu
+include('admin-menu.php');
+
 
 // Set ShowBox Explorer path
 define('ShowBox_Explorer_URL', plugins_url() .'/showbox/ShowBox%20Explorer' );
@@ -128,8 +132,6 @@ print '<a href="'.admin_url().'options-general.php?page=ShowBox-Explorer">ShowBo
 
 
 
-// Add ShowBox items to sidebar admin menu
-include('admin_sidebar_menu2.php');
 
 
 
