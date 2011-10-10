@@ -10,8 +10,10 @@ $login_link=REMOTE_AUTH_PATH.$Call_Back_URL;
 $load_link=file_get_contents($login_link);
 
 // Output link
-print $load_link;
-
+// print $load_link;
+print <<<EOF
+Login to your DropBox account $load_link.
+EOF;
 }
 
 

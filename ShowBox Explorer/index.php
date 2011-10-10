@@ -19,6 +19,15 @@ if ($user_state)
   <h1>This is content of your DropBox "Public" folder:</h1>
 
 
+  <p class="description">
+  <ol>
+<li>Select images  you want to show - just click on needed ones</li>
+<li>In the right side you'll see all images you've selected</li>
+<li>Refresh your blog main page. That's all.</li>
+  </ol>
+  </p>
+
+
 <!-- This is DropBox explorer page content-->
   <table>
   <tr>
