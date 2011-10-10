@@ -1,19 +1,14 @@
 <?php
 
 // Show login to DropBox link
-function Show_Login_Link($Call_Back_URL){
+function Show_DropBox_Login_Link($Call_Back_URL){
 
 // Create login link
 $login_link=REMOTE_AUTH_PATH.$Call_Back_URL;
 
 // Get DropBox login oauth link with login token and call back url
 $load_link=file_get_contents($login_link);
-
-// Output link
-// print $load_link;
-print <<<EOF
-Login to your DropBox account $load_link.
-EOF;
+return($load_link);
 }
 
 
@@ -107,7 +102,7 @@ function  Do_Redirect_To($redirect_url){
 
 
 // Save credentials to file
-function Save_Credentials($request_tokens,$UID){
+function Save_Credentials($File_To_Save, $request_tokens, $UID){
 
 // Create file to save
 $content=<<<EOF
@@ -125,7 +120,7 @@ EOF;
 
 
 // Save tokens and UIN to file
-$f = fopen(CREDENTIALS_FILE,'w'); 
+$f = fopen($File_To_Save, 'w'); 
 fwrite($f,$content,strlen($content)); 
 fclose($f); 
 

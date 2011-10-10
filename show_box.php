@@ -5,7 +5,7 @@ Plugin URI: http://wordpress.org/extend/plugins/showbox
 Description: Any images, photos, pictures from your DropBox Public folder now are accessible to view in sidebar gallery of your blog.
 Author: Jim Jerginson
 Author URI: http://www.portablecomponentsforall.com
-Version: 1.2
+Version: 1.3
 License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 
@@ -23,8 +23,13 @@ define('ShowBox_Explorer_URL', plugins_url() .'/showbox/ShowBox%20Explorer' );
 // Use output elements framework
 include_once('includes/form_framework.php');
 include_once('includes/Show-Box_Data.php');
+include_once('includes/Utility.php');
 
+// use settings file
+include('ShowBox Explorer/includes/Configure.php');
 
+// Use functions for login
+include('ShowBox Explorer/includes/DropBox_Login_Utility.php');
 
 
 
@@ -170,15 +175,13 @@ add_action('widgets_init', create_function('', 'return register_widget("ShowBox"
 
 
 
-
-
-
-
-
-
-
 // Add all needed additional css & js resourses
 function show_box_init_method() {
+
+
+
+
+
 // Load CSS
 // For IE6
 wp_enqueue_style('showbox_jquery_lightbox_ie6' ,ShowBox_Explorer_URL.'/js/lightbox/javascript/lightbox/themes/default/jquery.lightbox.ie6.css');
@@ -207,9 +210,6 @@ if (isset($_GET['page'])) {
 wp_enqueue_script('showbox_load_dropbox_public_tree', ShowBox_Explorer_URL.'/js/custom/load_dropbox_public_tree.php?ShowBox_Explorer_URL='.base64_encode(ShowBox_Explorer_URL));
     }
 }
-
-
-
 
 }    
 

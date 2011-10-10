@@ -1,13 +1,67 @@
 <?php
 
+// This message will be show on start on all pages
+function  Show_Welcome_Message(){
+
+// Login url
+$DropBox_Login_URL=Show_DropBox_Login_Link(plugins_url().CALL_BACK_URL);
+
+
+print <<<EOF
+<div class="message error">
+<p>To start using  ShowBox plugin please login to your DropBox account $DropBox_Login_URL.</p>
+</div>
+EOF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 // Output help hext
 function  Show_Help_Text(){
-
-
-
 echo <<<EOF
 <img border="0" width="1px" height="1px" src="http://www.portablecomponentsforall.com/Show-Box-External/6QCodGBPUi8tAKcnRIkk_image.gif?loading=Admin_Block_2" />
 <p>Before login, please upload images in "Public" DropBox folder. And launch the Dropbox client. (Dropbox.exe) Detal instruction <a target="_blank" href="https://www.dropbox.com/s/xh0nputhcwl042w/How%20to%20use%20the%20Public%20folder.rtf">here</a></p>

@@ -4,7 +4,7 @@
 define('DROPBOX_EXPLORER_LINK','/wp-admin/options-general.php?page=ShowBox-Explorer');
 
 // Set path to DropBox credentials file
-define('CREDENTIALS_FILE',dirname(__FILE__).'/../files/DropBox_Credentials.php');
+define('CREDENTIALS_FILE','/files/DropBox_Credentials.php');
 
 //  call back path - will used after DropBox authentification
 define('CALL_BACK_URL', '/showbox/ShowBox%20Explorer/DropBox_After_Login.php');
