@@ -15,8 +15,8 @@ print <<<EOF
 <div class="updated">
 <p>
 <ul>
-<li>Note! Before ShowBox installation upload your photos and images in your DropBox "Public" folder.  Use DropBox native client for images uploading.</li>
-<li>Attention! If you are already logged in DropBox, please log out. After that login to DropBox by using ShowBox.</li>
+<li><strong>Note!</strong> Before ShowBox installation upload your photos and images in your DropBox "Public" folder.  Use DropBox native client for images uploading.</li>
+<li><strong>Attention!</strong> If you are already logged in DropBox, please log out. After that login to DropBox by using ShowBox.</li>
 </ul>
 </p>
 </div>
