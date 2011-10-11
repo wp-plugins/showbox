@@ -11,6 +11,30 @@ print <<<EOF
 <div class="message error">
 <p>To start using  ShowBox plugin please login to your DropBox account $DropBox_Login_URL.</p>
 </div>
+
+<div class="updated">
+<p>
+<ul>
+<li>Note! Before ShowBox installation upload your photos and images in your DropBox "Public" folder.  Use DropBox native client for images uploading.</li>
+<li>Attention! If you are already logged in DropBox, please log out. After that login to DropBox by using ShowBox.</li>
+</ul>
+</p>
+</div>
+
+<div class="updated">
+<p>
+<ol>
+<li>
+    You must have DropBox account. And you must be shure that your DropBox login and password working. If you not have DropBox account or login and password not correct,  you can't login to ShowBox and can't view your "Public" folder.
+</li>
+<li>
+    After uploading of your images enter your DropBox login and password for start working ShowBox .
+ You'll see your images and photos in "Public" folder.
+</li>
+</ol>
+</p>
+</div>
+
 EOF;
 }
 
