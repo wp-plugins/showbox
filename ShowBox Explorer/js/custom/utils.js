@@ -1,3 +1,51 @@
+// Fired then checkbox selected
+function ShowBoxAllowLinkChecked(){
+
+// Get state of checkbox
+state=$('#ShowBoxAllowLink').is(':checked');
+
+// show/hide DropBox login link
+if (state){
+ $('#DropBoxLoginLink').show();
+}
+else {
+ $('#DropBoxLoginLink').hide();
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Create image box buffer 
 function Image_Box_Buffer(w,h, node){
 

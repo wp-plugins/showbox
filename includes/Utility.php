@@ -6,11 +6,33 @@ function  Show_Welcome_Message(){
 // Login url
 $DropBox_Login_URL=Show_DropBox_Login_Link(plugins_url().CALL_BACK_URL);
 
+/*
+<input type="checkbox" id="checkbox" name="checkbox"   value="<?php echo (isset($checkbox) && $checkbox != ''  ? 'checked' : ''); ?>"  />
+*/
+
 
 print <<<EOF
-<div class="message error">
+
+
+<!-- Allow Copyright link section-->
+<div class="updated">
+<p>
+<form>
+Allow copyright link to use ShowBox:
+<input type="checkbox" id="ShowBoxAllowLink" onclick="ShowBoxAllowLinkChecked()"/>
+</form>
+</p>
+</div>
+<!-- End Allow Copyright section-->
+
+
+
+
+<div class="message error" id="DropBoxLoginLink" style="display:none;">
 <p>To start using  ShowBox plugin please login to your DropBox account $DropBox_Login_URL.</p>
 </div>
+
+
 
 <div class="updated">
 <p>
@@ -34,6 +56,9 @@ print <<<EOF
 </ol>
 </p>
 </div>
+
+
+
 
 EOF;
 }
