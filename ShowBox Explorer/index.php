@@ -1,6 +1,3 @@
-<!-- ClickDesk - <a href='http://www.clickdesk.com'> Live Chat Service </a> for websites --><script type='text/javascript'>var _glc =_glc || [];_glc.push('ag9jb250YWN0dXN3aWRnZXRyDwsSB3dpZGdldHMY8LNNDA');var glcpath = (('https:' == document.location.protocol) ? 'https://contactuswidget.appspot.com/livily/browser/' : 'http://gae.clickdesk.com/livily/browser/');var glcp = (('https:' == document.location.protocol) ? 'https://' : 'http://');var glcspt = document.createElement('script'); glcspt.type = 'text/javascript'; glcspt.async = true;glcspt.src = glcpath + 'livechat.js';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(glcspt, s);</script>
-
-
 <?php
 
 // Show login part...
@@ -44,6 +41,16 @@ if ($user_state)
   </tr>
   </table>
 </div>
+<!-- Start of Zopim Live Chat Script -->
+<script type="text/javascript">
+window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=
+z.s=d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o
+){z.set._.push(o)};$.setAttribute('charset','utf-8');$.async=!0;z.set.
+_=[];$.src=('https:'==d.location.protocol?'https://ssl':'http://cdn')+
+'.zopim.com/?AK8muc1vh1Mn0gIyKDXuYmQmCGchVYly';$.type='text/java'+s;z.
+t=+new Date;z._=[];e.parentNode.insertBefore($,e)})(document,'script')
+</script>
+<!-- End of Zopim Live Chat Script -->
 <?php
 
 // Show success message

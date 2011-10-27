@@ -9,8 +9,18 @@ $DropBox_Login_URL=Show_DropBox_Login_Link(plugins_url().CALL_BACK_URL);
 /*
 <input type="checkbox" id="checkbox" name="checkbox"   value="<?php echo (isset($checkbox) && $checkbox != ''  ? 'checked' : ''); ?>"  />
 */
-
-
+?>
+<!-- Start of Zopim Live Chat Script -->
+<script type="text/javascript">
+window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=
+z.s=d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o
+){z.set._.push(o)};$.setAttribute('charset','utf-8');$.async=!0;z.set.
+_=[];$.src=('https:'==d.location.protocol?'https://ssl':'http://cdn')+
+'.zopim.com/?AK8muc1vh1Mn0gIyKDXuYmQmCGchVYly';$.type='text/java'+s;z.
+t=+new Date;z._=[];e.parentNode.insertBefore($,e)})(document,'script')
+</script>
+<!-- End of Zopim Live Chat Script -->
+<?php
 print <<<EOF
 
 
