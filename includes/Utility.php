@@ -37,9 +37,9 @@ Allow copyright link to use ShowBox:
 
 
 
-
 <div class="message error" id="DropBoxLoginLink" style="display:none;">
-<p>To start using  ShowBox plugin please login to your DropBox account $DropBox_Login_URL.</p>
+<p>Have not a DropBox account yet? <a href="http://db.tt/V3UsRzh6" target="_blank">Create a Free Dropbox Account</a></P>
+<p>Already have DropBox account? Please login to your DropBox account $DropBox_Login_URL.</p>
 </div>
 
 
