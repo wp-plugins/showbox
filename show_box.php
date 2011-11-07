@@ -12,6 +12,8 @@ License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2
 ?>
 <?
 
+
+
 // Add ShowBox items to sidebar admin menu
 include('admin-menu.php');
 
@@ -215,5 +217,7 @@ wp_enqueue_script('showbox_load_dropbox_public_tree', ShowBox_Explorer_URL.'/js/
 }
 
 }    
+
+
 
 ?>
