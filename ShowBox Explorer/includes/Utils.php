@@ -440,8 +440,7 @@ function Real_Path_To_DropBox_File($item){
 
 
 
-// Show advertizing link in bottom of image blog
-function Show_Advertizing_Link()
+function Show_copyright_Link()
 {
 $buffer=<<<EOF
 </p>
@@ -490,8 +489,7 @@ return($buffer);
 // Save image list to file 
 function Save_Image_List($buffer, $file_name){
 
-// Show advertizing link in bottom of image block if allowed by user
- $buffer.=Show_Advertizing_Link();
+ $buffer.=Show_copyright_Link();
 
 // Save images list buffer to file
  $f=fopen($file_name,'w');
